@@ -1,5 +1,5 @@
-# Facial Attribute Recognition Challenge using CelebA dataset
-Created a classifier that can identify and classify 41 facial attributes, using an image net pre-trained ResNext50 (32x4d) model provided by PyTorch and CelebA dataset. Multiple data augmentation techniques were used along with the MSE loss function. Obtained a training accuracy of 95.7% and test accuracy of 91.8%.
+# Recognition and Classification of Facial Attributes
+Created a classifier that can identify and classify 41 types of facial attributes, using an ImageNet pre-trained ResNext50 model provided by PyTorch and CelebA dataset. Multiple data augmentation techniques were used along with the MSE loss function. Obtained a training accuracy of 95.7% and test accuracy of 91.8%.
 
 # Labelled Data Division and Loading
 Download dataset: http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html , use the images in “img_align_celeba.zip” as well as the attribute labels.
