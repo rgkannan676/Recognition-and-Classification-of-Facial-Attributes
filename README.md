@@ -11,9 +11,10 @@ PIL library was used to load the image and convert the same to tensor value for 
 # Model
 The model used this project is an image net pretrained ResNext50 (32x4d) model provided by PyTorch.
 import torchvision.models as models
+```
 resnext50_32x4d = models.resnext50_32x4d(pretrained=True)
 resnext50_32x4d.fc = nn.Linear(2048, 40) # updating final FC layer.
-
+```
 ResNext is a modification over the ResNet by reducing the number of hyper parameters required. ResNext has a parameter called cardinality C, which decides how many times a same transformation is done. The C is equal to 32 for the model I selected. This network uses the repetition strategy of ResNet with the split transform merge strategy of the of the Inception network. During multiple experiments, it was found that ResNext performed well compared to ResNet, i.e why I chose ResNext
 
 The dimensions of the output of the last FC (fully connected layer) is changed to 40 as there is 40 features to predict.
@@ -43,8 +44,10 @@ GPU is used for doing the tensor computation. In PyTorch framework,  we can send
 # Image Augmentation Techniques Used
 
 Image augmentation techniques were used to improve the accuracy of the network. Following were the augmentations done.
-•	Horizontal Flip – The image was flipped in the horizontal direction with the help of image transpose facility provided by the PIL library.
-•	Image resize and cropping – The image was resized to 220 x 270 to maintain the aspect ratio. This is done using the resize function provided by PIL image. Then the resized image is cropped back to 178x218 to fit the input image tensor. This is done using the crop functionality provided by the PIL library.
+
+•Horizontal Flip – The image was flipped in the horizontal direction with the help of image transpose facility provided by the PIL library.
+
+•Image resize and cropping – The image was resized to 220 x 270 to maintain the aspect ratio. This is done using the resize function provided by PIL image. Then the resized image is cropped back to 178x218 to fit the input image tensor. This is done using the crop functionality provided by the PIL library.
 
 # Saving the Checkpoints
 
@@ -70,9 +73,9 @@ From the above validation accuracy, we can see that after the 3rd epoch, the acc
 
 # Testing
 The model after the 3rd  epoch is chosen for testing as it had the highest validation accuracy. The testing was done on the test data and had good accuracy comparable to validation. Thus, the model can generalize on test data.
-	Model after 3rd Epoch
-Average
-Accuracy(%)	91.48
+
+![image](https://user-images.githubusercontent.com/29349268/118015944-6a481d80-b387-11eb-993b-719d24ec1888.png)
+
 
 Below table contains the observed average accuracy of each facial attribute during testing.
 ![image](https://user-images.githubusercontent.com/29349268/118003547-42eb5380-b37b-11eb-876f-ac2cd2b48e02.png)
